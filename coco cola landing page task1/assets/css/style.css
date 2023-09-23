@@ -1,0 +1,232 @@
+/* --- Google Font --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+/* --- Variable CSS --- */
+:root {
+  --circle-bgColor: #e51e2a;
+  --main-bgColor: #161616;
+}
+
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* --- Parent Div --- */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--main-bgColor);
+}
+
+/* --- Circle in background --- */
+section .circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--circle-bgColor);
+  clip-path: circle(70% at right -20%);
+}
+
+/* --- Header --- */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .logo {
+  position: relative;
+  max-width: 150px;
+}
+header .navigation {
+  position: relative;
+  display: flex;
+}
+header .navigation li {
+  list-style: none;
+}
+header .navigation li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+/* --- Second Parent Box - content --- */
+.content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .textBox {
+  position: relative;
+  max-width: 600px;
+  margin-right: 20px;
+  color: #fff;
+}
+.content .textBox h2 {
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+.content .textBox a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--circle-bgColor);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 40px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* --- Image Box + Slider --- */
+.content .imgBox {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.content .imgBox img {
+  max-width: 200px;
+  margin: auto;
+  padding: 20px 20px;
+}
+
+/* --- slider --- */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 180px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+.swiper-slide img {
+  position: absolute;
+  bottom: 0;
+  max-height: 100%;
+}
+
+/* --- Social Box --- */
+.social {
+  position: absolute;
+  bottom: 40px;
+  left: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social li {
+  list-style: none;
+}
+.social li a {
+  display: inline-block;
+  margin-left: 15px;
+  background-color: #222;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+.social li a img {
+  filter: invert(1);
+  transform: scale(0.5);
+}
+.social li a:hover {
+  background-color: var(--circle-bgColor);
+  transform: translateY(-10px);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 991px) {
+  section {
+    padding: 150px 40px;
+  }
+  header {
+    padding: 40px;
+  }
+  .social {
+    left: 40px;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .content .textBox,
+  .content .imgBox {
+    max-width: 100%;
+  }
+  .swiper-slide {
+    height: 300px;
+  }
+  header .navigation {
+    display: none;
+  }
+  header .navigation.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--circle-bgColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  header .navigation li a {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  .toggle {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(../images/menu.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  .toggle.active {
+    position: fixed;
+    right: 40px;
+    background: url(../images/close.png);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
